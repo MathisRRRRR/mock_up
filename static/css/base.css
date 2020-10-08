@@ -42,5 +42,19 @@ footer {
     margin-left: 0px;
     /* display: inline-block;*/
     vertical-align: bottom;
+    display: inline-block;
+    
+}
+
+.questioncontent{
+    padding-top : 50px;
+    display: inline-block;
+    padding-bottom : 121px;
+   
+    margin-left: 10px;
+}
+
+.quiz1{
+    font-family: 'Chilanka', cursive;
 }
 
