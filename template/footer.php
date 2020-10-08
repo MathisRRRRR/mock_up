@@ -1,4 +1,5 @@
-<footer>  <p>Author: Hege Refsnes</p>
+<footer>  
+    <p>Author: Hege Refsnes</p>
     <p>
         <a href="mailto:hege@example.com">hege@example.com</a>
     </p>
