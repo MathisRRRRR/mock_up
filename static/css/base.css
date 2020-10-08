@@ -34,5 +34,13 @@ footer {
     width: 100vw;
     background: rgba(127, 140, 141,1.0);
     padding: 1em;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+    width:100%;
+    margin-left: 0px;
+    /* display: inline-block;*/
+    vertical-align: bottom;
 }
 
