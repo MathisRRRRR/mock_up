@@ -1,7 +1,7 @@
 <footer>  
     <p>Author: Hege Refsnes</p>
     <p>
-        <display 
+        <display "ok"
         <a href="mathis.rousseau@isen.yncrea.fr">mathis.rousseau@isen.yncrea.fr</a>
         <a href="romuald-koami-mawupe.aziagba@rabat.yncrea.fr">mathis.rousseau@isen.yncrea.fr</a>
         <a href="joshua.ofori@student.yncrea.fr">joshua.ofori@student.yncrea.fr</a>
