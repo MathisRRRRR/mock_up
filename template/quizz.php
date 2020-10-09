@@ -37,38 +37,38 @@
 
 <h3> - Q2 : </h3>
 
-<p> What's the name of this football Player ? </p>
+<p> In which city can we find this statue</p>
 
 
-<img src="../static/img/griezmann.jpg" align="left" width="350" height="200">
+<img src="../static/img/liberty.jpg" align="left" width="150" height="300">
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div>
-  <input type="radio" id="q2choix1" name="question2" value="Messi">
-  <label for="2option1"> Messi </label>
+  <input type="radio" id="q2choix1" name="question2" value="Chicago">
+  <label for="2option1"> Chicago </label>
 </div>
 
 <div>
-  <input type="radio" id="q2choix2" name="question2" value="Ronaldo">
-  <label for="q2choix2"> Ronaldo</label>
+  <input type="radio" id="q2choix2" name="question2" value="New York">
+  <label for="q2choix2"> New York</label>
 </div>
 
 <div>
-  <input type="radio" id="q2choix3" name="question2" value="greizmann">
-  <label for="q2choix3"> Greizmann </label>
+  <input type="radio" id="q2choix3" name="question2" value="Washington">
+  <label for="q2choix3"> Washington</label>
 </div>
 
 <div>
-  <input type="radio" id="q2choix4" name="question2" value="mbape">
-  <label for="q2choix4"> Mbape</label>
+  <input type="radio" id="q2choix4" name="question2" value="Seattle">
+  <label for="q2choix4">Seattle</label>
 </div>
 
 <br><br>
 <h3> - Q3 : </h3>
-  <p> What is the capital of France? </p>
+  <p> What is the capital of the United State of America ? </p>
   <div>
-  <input type="text" id="capitaloffrance" name="question3ans">
+  <input type="text" id="capitalofus" name="question3ans">
  
 </div>
 
@@ -76,26 +76,26 @@
 
 
  <h3> - Q4 : </h3>
-  <p> How old is he? </p>
+  <p> when was Obama elected ? </p>
 
-<img src="../static/img/trump.jpg" align="left" width="350" height="200">
+<img src="../static/img/Obama.jpg" align="left" width="150" height="300">
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div>
   <input type="checkbox" id="op1" name="op1"
          >
-  <label for="op1">13</label>
+  <label for="op1">2009</label>
 </div>
 
 <div>
   <input type="checkbox" id="op2" name="op2">
-  <label for="op2">24</label>
+  <label for="op2">2017</label>
 </div>
 
 <div>
   <input type="checkbox" id="op3" name="op3">
-  <label for="op3">74</label>
+  <label for="op3">2008</label>
 </div>
 
 <br>

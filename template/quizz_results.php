@@ -22,14 +22,14 @@
       $result++;
    }
    $selectOption = $_POST['question2'];
-   if($selectOption=="greizmann"){
+   if($selectOption=="New York"){
       $result++;
    }
    $selectOption = $_POST['question3ans'];
-   if($selectOption=="paris"){
+   if($selectOption=="Washington"){
       $result++;
    }
-   
+   /**/
    if(isset($_POST['op3']) && !isset($_POST['op1'])&& !isset($_POST['op2'])){
       $result++;
    }
