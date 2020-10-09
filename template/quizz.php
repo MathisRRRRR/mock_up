@@ -40,7 +40,7 @@
 <p> In which city can we find this statue</p>
 
 
-<img src="../static/img/liberty.jpg" align="left" width="150" height="300">
+<img src="../static/img/liberty.jpg" align="left" width="200" height="300">
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -78,7 +78,7 @@
  <h3> - Q4 : </h3>
   <p> when was Obama elected ? </p>
 
-<img src="../static/img/Obama.jpg" align="left" width="150" height="300">
+<img src="../static/img/Obama.jpg" align="left" width="200" height="300">
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
