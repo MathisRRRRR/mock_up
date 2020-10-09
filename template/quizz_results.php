@@ -9,24 +9,35 @@
 </head>
 <body class="quiz1">
     <?php include("header.php"); ?>
+
 	<p>
-    Coming soon!
+    Your Results!
    </p>
-<!---VARIABLE LINKED--->
+
  <?php
-  function compare($q1){
-     $compteur=0;
-     if ($q1=='teletubbies') {
-        $compteur+=1;
-     }
-     return $compteur; 
-  }
-  $test=compare($_GET['var']);
-  echo "Points :";
-  echo $test; 
+ $result=0;
+  if (isset($_POST['submit'])){
+   $selectOption = $_POST['options_1'];
+   if($selectOption=="trump"){
+      $result++;
+   }
+   $selectOption = $_POST['question2'];
+   if($selectOption=="greizmann"){
+      $result++;
+   }
+   $selectOption = $_POST['question3ans'];
+   if($selectOption=="paris"){
+      $result++;
+   }
+   
+   if(isset($_POST['op3'])){
+      $result++;
+   }
+   echo($result);
+}
    ?>
-   </p>
-<!---VARIABLE LINKED--->
+   
+
 
 
 <?php include('footer.php'); ?>

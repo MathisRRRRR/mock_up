@@ -14,6 +14,8 @@
 <section class="questioncontent">
 
 
+<form action="quizz_results.php" method="post">
+
     <h3> - Q1 : </h3>
 
 <label for="q1-select"> Who is this Man? </label>
@@ -31,7 +33,7 @@
     <option value="harry"> Harry Porter </option>
 </select>
 
-<br><br>
+<br><br><br><br>
 
 <h3> - Q2 : </h3>
 
@@ -43,22 +45,22 @@
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div>
-  <input type="radio" id="q2choix1" name="question2">
+  <input type="radio" id="q2choix1" name="question2" value="Messi">
   <label for="2option1"> Messi </label>
 </div>
 
 <div>
-  <input type="radio" id="q2choix2" name="question2">
+  <input type="radio" id="q2choix2" name="question2" value="Ronaldo">
   <label for="q2choix2"> Ronaldo</label>
 </div>
 
 <div>
-  <input type="radio" id="q2choix3" name="question2">
+  <input type="radio" id="q2choix3" name="question2" value="greizmann">
   <label for="q2choix3"> Greizmann </label>
 </div>
 
 <div>
-  <input type="radio" id="q2choix4" name="question2">
+  <input type="radio" id="q2choix4" name="question2" value="mbape">
   <label for="q2choix4"> Mbape</label>
 </div>
 
@@ -97,13 +99,12 @@
 </div>
 
 <br>
+<input type="submit" name="submit">
+</form>
+<br>
 
 
 
-<!---VARIABLE LINKED--->
-
-<a href='Quizz_results.php?var=teletubbies'>results</a>
-<!---VARIABLE LINKED--->
 
 </section>
     <?php include('footer.php'); ?>
