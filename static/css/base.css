@@ -8,7 +8,12 @@ nav ul {
     overflow: hidden;
     background-color: #333;
 }
-
+body
+{
+    background: url('blue_wallpaper.jpg');
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #ffffff; /*text color */
+}
 nav li {
     float: left;
 }
@@ -54,7 +59,7 @@ footer {
     margin-left: 10px;
 }
 
-/* .quiz1{
+.quiz1{
     font-family: 'Chilanka', cursive;
-} */
+}
 
