@@ -5,9 +5,9 @@
     <title>Quizz index</title>
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/account.css">
-    <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet"> -->
 </head>
-<body class="quiz1">
+<body >
     <?php include("header.php"); ?>
 
     
