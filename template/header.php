@@ -1,3 +1,5 @@
+<?php include("account_page.php"); ?>
+
 <nav>
   <ul>
     <li><a class="active" href="/mock_up/">Home</a></li>
@@ -9,4 +11,4 @@
   </ul>
 </nav>
 
-<?php include("account_page.php"); ?>
+
