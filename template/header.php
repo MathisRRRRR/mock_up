@@ -1,14 +1,27 @@
-<?php include("account_page.php"); ?>
+<?php
+$database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', 'JO0437anhydrous');
+?>
+<link rel="stylesheet" href="../static/css/base.css">
+<link rel="stylesheet" href="../static/css/account.css">
+</head>
 
-<nav>
-  <ul>
-    <li><a class="active" href="/mock_up/">Home</a></li>
-    <li><a href="/mock_up/template/quizz.php">Quiz 1</a></li>
-    <li><a href="/mock_up/template/secondquiz.php">Quiz 2</a></li>
-    <!-- Button to open the modal login form -->
+<body>
+  <nav>
 
-    <li><a onclick="document.getElementById('id01').style.display='block'" >Login</a></li>
-  </ul>
-</nav>
+    <ul>
+      <li><a class="active" href="/mock_up/">Home</a></li>
 
 
+      <?php
+
+      $response = $database->query("SELECT * FROM `quizz` ");
+
+      while ($result = $response->fetch()) {
+      ?>
+        <li><a href="/mock_up/template/quizz.php?quizz_id=<?php echo $result['quizz_id']?>"><?php echo ($result['quizz_name']); ?></a></li>
+
+      <?php   }
+      $response->closeCursor() ;
+      ?>
+    </ul>
+  </nav>
