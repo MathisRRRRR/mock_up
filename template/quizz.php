@@ -44,12 +44,40 @@ if (isset($_GET['quizz_id'])) {
        
        $response_answers = $database->query("SELECT `answer_id`,`answer_text`,`is_valid_answer` FROM `answer` WHERE
        `answer`.`answer_question_id`= $question_id");
-       
+       switch($question['question_input_type'] ){
+         case "radio":
        foreach($response_answers as $answer){?>
        <br>
-        <input type="radio" id="<?php$answer['answer_id'];?>" name="<?php$question['question_id'];?>" value="<?php$answer['answer_text'];?>"><?php echo($answer['answer_text']);?>
+        <input type="radio" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question_id);?>" value="<?php echo($answer['answer_id']);?>"><?php echo($answer['answer_text']);?>
       <?php
        }
+      break;
+      case "checkbox":
+        foreach($response_answers as $answer){?>
+        <br>
+         <input type="checkbox" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question_id);?>" value="<?php echo($answer['answer_id']);?>"><?php echo($answer['answer_text']);?>
+       <?php
+        }
+       break;
+       case "number":
+        foreach($response_answers as $answer){?>
+        <br>
+         <input type="number" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question_id);?>" value="">
+       <?php
+        }
+       break;
+       case "select":?>
+        <select  id="<?php echo($response_answer['answer_id']);?>" name="<?php echo($question_id);?>">
+        <br>
+        <?php foreach($response_answers as $answer){?>
+        <option value="<?php echo($answer['answer_id']);?>"> <?php echo($answer['answer_text']);?></option>
+
+       <?php
+        }?>
+        </select><?php 
+       break;
+       
+      }
        $response_answers->closeCursor();
     ?>
         <br><br>

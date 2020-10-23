@@ -1,11 +1,11 @@
 <?php
-$database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', 'JO0437anhydrous');
+$database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
 ?>
 <link rel="stylesheet" href="../static/css/base.css">
 <link rel="stylesheet" href="../static/css/account.css">
 </head>
 
-<body>
+<body> 
   <nav>
 
     <ul>
@@ -23,5 +23,6 @@ $database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', 'JO0437a
       <?php   }
       $response->closeCursor() ;
       ?>
+      <li><a onclick="document.getElementById('id01').style.display='block'" >Login</a></li>
     </ul>
   </nav>

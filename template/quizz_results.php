@@ -1,5 +1,3 @@
-
-
 <!Doctype html >
 <head>
    <meta charset="UTF-8">
@@ -13,31 +11,26 @@
       Your Results!
    </p>
 
-   <?php
-   $result = 0;
-   if (isset($_POST['submit'])) {
-      $selectOption = $_POST['options_1'];
-      if ($selectOption == "trump") {
-         $result++;
+ <?php
+
+if(isset($_POST['submit'])){
+   $answers = 1;
+   $answer_id = $_POST[$answers];
+
+  
+   
+   
+      $insert = $database->query(" INSERT INTO `user_answer`(`user_id`,`answer_id`) VALUES ($answers, $answer_id) ");
+      var_dump($insert);
+      
+      if($insert){
+         echo("inserted");
       }
-      $selectOption = $_POST['question2'];
-      if ($selectOption == "New York") {
-         $result++;
-      }
-      $selectOption = $_POST['question3ans'];
-      if ($selectOption == "Washington") {
-         $result++;
-      }
-      /**/
-      if (isset($_POST['op3']) && !isset($_POST['op1']) && !isset($_POST['op2'])) {
-         $result++;
-      }
-      echo ($result);
-   }
-   ?>
+   
+}
 
 
-
+?>
 
    <?php include('footer.php'); ?>
    </body>

@@ -215,15 +215,15 @@ insert into `quizz`(`quizz_name`) VALUES ('quizz2');
 -- ----------------------------------------------------- ----
 insert into question(`question_title`,`question_input_type`,`question_quizz_id`) 
 VALUES ('Who is this Man?','select',1),
-('In which city can we find this statue','radio button',1),
-('What is the capital of the United State of America ?','input',1),
+('In which city can we find this statue','radio',1),
+('What is the capital of the United State of America ?','number',1),
 ('when was Obama elected ?','checkbox',1);
 
 insert into question(`question_title`,`question_input_type`,`question_quizz_id`) 
 VALUES ('Which Avenger is this?','select',2),
-('What is name of the fifth Starwars movie?','radio button',2),
-('Which characters are members of the fellowship of the Ring','input',2),
-('In which year was Thor ragnorok released?','checkbox',2);
+('What is name of the fifth Starwars movie?','radio',2),
+('Which characters are members of the fellowship of the Ring','checkbox',2),
+('In which year was Thor ragnorok released?','number',2);
 
 
 --
