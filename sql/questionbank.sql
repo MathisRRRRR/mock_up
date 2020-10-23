@@ -38,7 +38,12 @@ CREATE TABLE `question` (
   `question_id` int (11) NOT NULL COMMENT 'question_identification',
   `question_title` varchar (255) NOT NULL COMMENT 'title of the question',
   `question_quizz_id` int (11) NOT NULL COMMENT 'link question quizz',
+<<<<<<< HEAD
   `question_input_type` varchar (255) NOT NULL COMMENT 'input of the question'
+=======
+  `question_input_type` varchar (255) NOT NULL COMMENT 'input of the question',
+  `image` boolean (1) NOT NULL COMMENT 'define if there is an image'
+>>>>>>> parent of cc05bdc... sql correction
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 -- ------------------------------------------------- --------
