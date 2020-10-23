@@ -38,9 +38,10 @@ if (isset($_GET['quizz_id'])) {
       <section class="questioncontent">
 
         <h3> - <?php echo ($question_number); ?> : </h3>
-
+        <img src="../static/img/question<?php echo($question['question_id'])?>.jpg" width="250" height="250">
+        <br>
         <label><?php echo ($question['question_title']); ?> </label>
-        <img src="question <?php $question['question_id'] ?>">
+       
        <?php 
        
        $response_answers = $database->query("SELECT `answer_id`,`answer_text`,`is_valid_answer` FROM `answer` WHERE
