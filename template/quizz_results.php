@@ -14,20 +14,24 @@
  <?php
 
 if(isset($_POST['submit'])){
-   //$answers = 1;
-   // var_dump($_POST[$answers]);
    
-
-
-  
+   $marks=0;
+   $answers =$_POST;
+   for( $i =2;$i<5;$i++){
+      $response_answers = $database->query("SELECT `answer_text` FROM `answer` WHERE
+   `answer`.`answer_question_id`= $i and `answer`.`Is_valid_answer`=1");
    
+   $correct = $response_answers->fetch();
+   if($answers[$i]== $correct['answer_text']){
+      $marks++;
+   }
    
-      $insert = $database->exec(" INSERT INTO `user_answer`(`user_id`,`answer_id`) VALUES (1, 5) ");
-
-
-      if($insert){
-         echo("inserted");
-      }
+   $response_answers->closeCursor();
+ 
+   
+   }
+   
+echo($marks); 
    
 }
 

@@ -33,7 +33,7 @@ if (isset($_GET['quizz_id'])) {
    
   ?>
 
-    <form action="quizz_results.php" method="post">
+    <form action="quizz_results.php?quiz=<?php $quizz_id ?>" method="post">
 
       <section class="questioncontent">
 
@@ -50,29 +50,30 @@ if (isset($_GET['quizz_id'])) {
          case "radio":
        foreach($response_answers as $answer){?>
        <br>
-        <input type="radio" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question_id);?>" value="<?php echo($answer['answer_id']);?>"><?php echo($answer['answer_text']);?>
+        <input type="radio" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question['question_id']);?>" value="<?php echo($answer['answer_text']);?>"> <?php echo($answer['answer_text']); ?>
       <?php
        }
       break;
       case "checkbox":
         foreach($response_answers as $answer){?>
         <br>
-         <input type="checkbox" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question_id);?>" value="<?php echo($answer['answer_id']);?>"><?php echo($answer['answer_text']);?>
+         <input type="checkbox" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question['question_id']);?>" value="<?php echo($answer['answer_text']);?>"><?php echo($answer['answer_text']);?>
        <?php
         }
        break;
        case "number":
         foreach($response_answers as $answer){?>
         <br>
-         <input type="number" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question_id);?>" value="">
+         <input type="number" id="<?php echo($answer['answer_id']);?>" name="<?php echo($question['question_id']);?>" value="">
        <?php
         }
        break;
        case "select":?>
-        <select  id="<?php echo($response_answer['answer_id']);?>" name="<?php echo($question_id);?>">
+        <select  id="<?php echo($response_answer['answer_id']);?>" name="<?php echo($question['question_id']);?>">
         <br>
+        <option value=""> --Please choose an option-- </option>
         <?php foreach($response_answers as $answer){?>
-        <option value="<?php echo($answer['answer_id']);?>"> <?php echo($answer['answer_text']);?></option>
+        <option value="<?php echo($answer['answer_text']);?>"> <?php echo($answer['answer_text']);?></option>
 
        <?php
         }?>
