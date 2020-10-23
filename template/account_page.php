@@ -1,15 +1,18 @@
+<!Doctype html >
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizz index</title>
-    <link rel="stylesheet" href="../static/css/base.css">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="./static/css/base.css">
+    <link rel="stylesheet" href="./static/css/account.css">
+</head>
+
+<body>
+    <?php include("header.php"); ?>
+
     
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet"> -->
-
- 
-
-      <!-- Modal Content -->
-      <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate" action="/action_page.php">
         <div class="imgcontainer">
           <img src="../static/images/img_avatar2.png" alt="Avatar" class="avatar">
         </div>
@@ -28,12 +31,15 @@
         </div>
 
         
-        <div class="container" style="background-color:#00000059">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
+        
       </form>
-    </div>
-    <!Doctype html>
-</head>
+    <?phpinclude('footer.php'); ?>
+</body>
+
+</html>
+
+
+
+
+
 

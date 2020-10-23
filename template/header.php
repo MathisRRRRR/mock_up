@@ -23,6 +23,6 @@ $database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', 'JO0437a
       <?php   }
       $response->closeCursor() ;
       ?>
-      <li><a onclick="document.getElementById('id01').style.display='block'" >Login</a></li>
+      <li><a href="/mock_up/template/account_page.php">Login</a></li>
     </ul>
   </nav>
