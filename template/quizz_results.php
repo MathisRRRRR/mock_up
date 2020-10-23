@@ -1,4 +1,5 @@
-<!Doctype html >
+<!Doctype html>
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,30 +12,27 @@
       Your Results!
    </p>
 
- <?php
+   <?php
 
-if(isset($_POST['submit'])){
-   //$answers = 1;
-   // var_dump($_POST[$answers]);
-   
-
-
-  
-   
-   
-      $insert = $database->exec(" INSERT INTO `user_answer`(`user_id`,`answer_id`) VALUES (1, 5) ");
+   if (isset($_POST['submit'])) {
+      //$answers = 1;
+      //var_dump($_POST);
 
 
-      if($insert){
-         echo("inserted");
-      }
-   
-}
 
 
-?>
+      $request = "INSERT INTO user_answer(`Answer_id`,`User_id`) VALUES ( 1,2)";
+      $response = $database->exec($request);
+
+      var_dump($response);
+
+     
+   }
+
+
+   ?>
 
    <?php include('footer.php'); ?>
    </body>
 
-</html>
+   </html>
