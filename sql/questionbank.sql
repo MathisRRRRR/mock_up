@@ -38,8 +38,7 @@ CREATE TABLE `question` (
   `question_id` int (11) NOT NULL COMMENT 'question_identification',
   `question_title` varchar (255) NOT NULL COMMENT 'title of the question',
   `question_quizz_id` int (11) NOT NULL COMMENT 'link question quizz',
-  `question_input_type` varchar (255) NOT NULL COMMENT 'input of the question',
-  `image` boolean (1) NOT NULL COMMENT 'define if there is an image'
+  `question_input_type` varchar (255) NOT NULL COMMENT 'input of the question'
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 -- ------------------------------------------------- --------
@@ -214,17 +213,17 @@ insert into `quizz`(`quizz_name`) VALUES ('quizz2');
 -- 
 -- Insertion into question table
 -- ----------------------------------------------------- ----
-insert into question(`question_title`,`question_input_type`,`question_quizz_id`,`image`) 
-VALUES ('Who is this Man?','select',1,1),
-('In which city can we find this statue','radio',1,1),
-('What is the capital of the United State of America ?','number',1,0),
-('when was Obama elected ?','checkbox',1,1);
+insert into question(`question_title`,`question_input_type`,`question_quizz_id`) 
+VALUES ('Who is this Man?','select',1),
+('In which city can we find this statue','radio',1),
+('What is the capital of the United State of America ?','number',1),
+('when was Obama elected ?','checkbox',1);
 
-insert into question(`question_title`,`question_input_type`,`question_quizz_id`,`image`) 
-VALUES ('Which Avenger is this?','select',2,1),
-('What is name of the fifth Starwars movie?','radio',2,0),
-('Which characters are members of the fellowship of the Ring','checkbox',2,0),
-('In which year was Thor ragnorok released?','number',2,0);
+insert into question(`question_title`,`question_input_type`,`question_quizz_id`) 
+VALUES ('Which Avenger is this?','select',2),
+('What is name of the fifth Starwars movie?','radio',2),
+('Which characters are members of the fellowship of the Ring','checkbox',2),
+('In which year was Thor ragnorok released?','number',2);
 
 
 --

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +9,7 @@
  
 
       <!-- Modal Content -->
- 
-    </div>
-    <!Doctype html>
-</head>
-
-=======
-<!Doctype html >
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./static/css/base.css">
-    <link rel="stylesheet" href="./static/css/account.css">
-</head>
-
-<body>
-    <?php include("template/header.php"); ?>
-     <form class="modal-content animate" action="/action_page.php">
+      <form class="modal-content animate" action="/action_page.php">
         <div class="imgcontainer">
           <img src="../static/images/img_avatar2.png" alt="Avatar" class="avatar">
         </div>
@@ -52,10 +33,7 @@
           <span class="psw">Forgot <a href="#">password?</a></span>
         </div>
       </form>
+    </div>
+    <!Doctype html>
+</head>
 
-   
-   <?php include('template/footer.php'); ?>
-</body>
-
-</html>
->>>>>>> php_v1

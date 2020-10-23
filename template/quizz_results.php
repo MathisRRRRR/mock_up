@@ -15,13 +15,31 @@
    <?php
 
    if (isset($_POST['submit'])) {
+<<<<<<< Updated upstream
      echo("ok");
       var_dump($_POST['1']);
+=======
+<<<<<<< Updated upstream
+      //$answers = 1;
+      //var_dump($_POST);
+>>>>>>> Stashed changes
 
 
 
 
+<<<<<<< Updated upstream
      
+=======
+      $request = "INSERT INTO user_answer(`Answer_id`,`User_id`) VALUES ( 1,2)";
+      $response = $database->exec($request);
+
+      var_dump($response);
+=======
+     
+      $response =$_POST['submit'];
+      echo($response);
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
      
    }
