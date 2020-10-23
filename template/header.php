@@ -1,5 +1,5 @@
 <?php
-$database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
+$database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', 'JO0437anhydrous');
 ?>
 <link rel="stylesheet" href="../static/css/base.css">
 <link rel="stylesheet" href="../static/css/account.css">
