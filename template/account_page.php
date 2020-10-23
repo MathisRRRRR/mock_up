@@ -10,7 +10,7 @@ class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container">
-      <label for="uname"><b>Username</b></label>
+      <label for="lastname"><b>lastname</b></label>
       <input type="text" placeholder="Enter Username" name="uname" required>
 
       <label for="psw"><b>Password</b></label>
@@ -22,6 +22,7 @@ class="close" title="Close Modal">&times;</span>
       </label>
     </div>
 
+    
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>

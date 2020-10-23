@@ -40,6 +40,7 @@ if (isset($_GET['quizz_id'])) {
         <h3> - <?php echo ($question_number); ?> : </h3>
 
         <label><?php echo ($question['question_title']); ?> </label>
+        <img src="question <?php $question['question_id'] ?>">
        <?php 
        
        $response_answers = $database->query("SELECT `answer_id`,`answer_text`,`is_valid_answer` FROM `answer` WHERE
