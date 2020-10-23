@@ -33,7 +33,7 @@ if (isset($_GET['quizz_id'])) {
    
   ?>
 
-    <form action="quizz_results.php?quiz=<?php $quizz_id ?>" method="post">
+    <form action="quizz_results.php?quiz=<?php echo($quizz_id); ?>" method="post">
 
       <section class="questioncontent">
 
@@ -71,9 +71,9 @@ if (isset($_GET['quizz_id'])) {
        case "select":?>
         <select  id="<?php echo($response_answer['answer_id']);?>" name="<?php echo($question['question_id']);?>">
         <br>
-        <option value=""> --Please choose an option-- </option>
+        <option  value=""> --Please choose an option-- </option>
         <?php foreach($response_answers as $answer){?>
-        <option value="<?php echo($answer['answer_text']);?>"> <?php echo($answer['answer_text']);?></option>
+        <option  value="<?php echo($answer['answer_text']);?>"> <?php echo($answer['answer_text']);?></option>
 
        <?php
         }?>
