@@ -197,7 +197,7 @@ INSERT INTO `answer`(`Answer_text`,`Is_valid_answer`,`Answer_question_id`) VALUE
  ('Thorin',false,7),
  ('A new Hope',false,6),
  ('The Return of the Jedi',false,6),
- ('The Empire strikes back',true,6),
+ ('The Empire strikes back',false,6),
  ('The force Awaken',true,6),
  ('2004',true,8); 
 
@@ -216,7 +216,7 @@ insert into `quizz`(`quizz_name`) VALUES ('quizz2');
 insert into question(`question_title`,`question_input_type`,`question_quizz_id`) 
 VALUES ('Who is this Man?','select',1),
 ('In which city can we find this statue','radio',1),
-('What is the capital of the United State of America ?','number',1),
+('how many states in usa ?','number',1),
 ('when was Obama elected ?','checkbox',1);
 
 insert into question(`question_title`,`question_input_type`,`question_quizz_id`) 
