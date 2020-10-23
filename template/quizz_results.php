@@ -15,13 +15,16 @@
    <?php
 
    if (isset($_POST['submit'])) {
-     echo("ok");
-      var_dump($_POST['1']);
+      //$answers = 1;
+      //var_dump($_POST);
 
 
 
 
-     
+      $request = "INSERT INTO user_answer(`Answer_id`,`User_id`) VALUES ( 1,2)";
+      $response = $database->exec($request);
+
+      var_dump($response);
 
      
    }
