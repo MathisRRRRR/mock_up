@@ -69,11 +69,11 @@ if (isset($_GET['quizz_id'])) {
         }
        break;
        case "select":?>
-        <select  id="<?php echo($response_answer['answer_id']);?>" name="<?php echo($question['question_id']);?>">
+        <select  id="<?php echo($response_answer['answer_id']);?>" name="<?php echo($question['question_id']);?>" >
         <br>
         <option  value=""> --Please choose an option-- </option>
         <?php foreach($response_answers as $answer){?>
-        <option  value="<?php echo($answer['answer_text']);?>"> <?php echo($answer['answer_text']);?></option>
+        <option  value="<?php echo($answer['answer_text']);?>" > <?php echo($answer['answer_text']);?></option>
 
        <?php
         }?>
