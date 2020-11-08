@@ -9,7 +9,7 @@ $database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
   <nav>
 
     <ul>
-      <li><a class="active" href="/mock_up/template/home.php">Home</a></li>
+      <li><a href="/mock_up/template/home.php">Home</a></li>
 
 
       <?php
