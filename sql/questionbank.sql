@@ -1,230 +1,195 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost: 8889
--- Server version: 5.7.26
--- PHP version: 7.3.8
+-- Hôte : 127.0.0.1:3306
+-- Généré le : Dim 08 nov. 2020 à 22:44
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
---
--- Database : `questionbank`
---
 
--- ----------------------------------------------- --------
-
---
--- Structure of the ʻanswer` table
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
+-- Base de données : `questionbank`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `answer`
+--
+
 DROP TABLE IF EXISTS `answer`;
-CREATE TABLE `answer` (
-  `Answer_id` int (11) NOT NULL COMMENT 'answer identifier',
-  `Answer_text` varchar (255) NOT NULL COMMENT 'text of the answer',
-  `Is_valid_answer` tinyint (1) NOT NULL COMMENT 'valid answer for question',
-  `Answer_question_id` int (11) NOT NULL COMMENT 'question related'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+CREATE TABLE IF NOT EXISTS `answer` (
+  `answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'answer identifier',
+  `Answer_text` varchar(255) NOT NULL COMMENT 'text of the answer',
+  `Is_valid_answer` tinyint(1) NOT NULL COMMENT 'valid answer for question',
+  `Answer_question_id` int(11) NOT NULL COMMENT 'question related',
+  PRIMARY KEY (`answer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
--- ------------------------------------------------ --------
-
---
--- Structure of the `question` table
+-- Déchargement des données de la table `answer`
 --
 
-CREATE TABLE `question` (
-  `question_id` int (11) NOT NULL COMMENT 'question_identification',
-  `question_title` varchar (255) NOT NULL COMMENT 'title of the question',
-  `question_quizz_id` int (11) NOT NULL COMMENT 'link question quizz',
-  `question_input_type` varchar (255) NOT NULL COMMENT 'input of the question'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+INSERT INTO `answer` (`answer_id`, `Answer_text`, `Is_valid_answer`, `Answer_question_id`) VALUES
+(1, 'Donald Trump', 1, 1),
+(2, 'Bill Gates', 0, 1),
+(3, 'Harry Potter', 0, 1),
+(4, 'Chicago', 0, 2),
+(5, 'New York', 1, 2),
+(6, 'Washington', 0, 2),
+(7, 'Seatle', 0, 2),
+(8, '50', 1, 3),
+(9, '2009', 0, 4),
+(10, '2017', 0, 4),
+(11, '2008', 1, 4),
+(12, 'Iron Man', 0, 5),
+(13, 'The Hulk', 0, 5),
+(14, 'Thor', 1, 5),
+(15, 'Gimli', 1, 7),
+(16, 'Saruman', 0, 7),
+(17, 'Frodo', 1, 7),
+(18, 'Merry', 1, 7),
+(19, 'Thorin', 0, 7),
+(20, 'A new Hope', 0, 6),
+(21, 'The Return of the Jedi', 0, 6),
+(22, 'The Empire strikes back', 0, 6),
+(23, 'The force Awaken', 1, 6),
+(24, '2017', 1, 8);
 
--- ------------------------------------------------- --------
+-- --------------------------------------------------------
+
 --
--- Structure of the `quizz` table
---
-CREATE TABLE `quizz` (
-  `quizz_id` int (11) NOT NULL COMMENT 'Quizz Identifier',
-  `quizz_name` varchar (255) NOT NULL COMMENT 'Quizz name'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
-
-
--- ------------------------------------------------- --------
-
---
--- Structure of the ʻuser` table
+-- Structure de la table `links`
 --
 
-CREATE TABLE `user` (
-  `User_id` int (11) NOT NULL COMMENT 'user identifier',
-  `User_last_name` varchar (255) NOT NULL COMMENT 'user last name',
-  `User_first_name` varchar (255) NOT NULL COMMENT 'user first name',
+DROP TABLE IF EXISTS `links`;
+CREATE TABLE IF NOT EXISTS `links` (
+  `main` text NOT NULL,
+  `header` text NOT NULL,
+  `footer` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `links`
+--
+
+INSERT INTO `links` (`main`, `header`, `footer`) VALUES
+('main.php', 'template/header.php', 'template/footer.php');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `question`
+--
+
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE IF NOT EXISTS `question` (
+  `question_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'question_identification',
+  `question_title` varchar(255) NOT NULL COMMENT 'title of the question',
+  `question_quizz_id` int(11) NOT NULL COMMENT 'link question quizz',
+  `question_input_type` varchar(255) NOT NULL COMMENT 'input of the question',
+  PRIMARY KEY (`question_id`),
+  KEY `question_quizz_id_fk` (`question_quizz_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `question`
+--
+
+INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
+(1, 'Who is this Man?', 1, 'select'),
+(2, 'In which city can we find this statue', 1, 'radio'),
+(3, 'how many states in usa ?', 1, 'number'),
+(4, 'when was Obama elected ?', 1, 'checkbox'),
+(5, 'Which Avenger is this?', 2, 'select'),
+(6, 'What is name of the fifth Starwars movie?', 2, 'radio'),
+(7, 'Which characters are members of the fellowship of the Ring', 2, 'checkbox'),
+(8, 'In which year was Thor ragnorok released?', 2, 'number');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `quizz`
+--
+
+DROP TABLE IF EXISTS `quizz`;
+CREATE TABLE IF NOT EXISTS `quizz` (
+  `quizz_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Quizz Identifier',
+  `quizz_name` varchar(255) NOT NULL COMMENT 'Quizz name',
+  PRIMARY KEY (`quizz_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `quizz`
+--
+
+INSERT INTO `quizz` (`quizz_id`, `quizz_name`) VALUES
+(1, 'quizz1'),
+(2, 'quizz2');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user identifier',
+  `User_last_name` varchar(255) NOT NULL COMMENT 'user last name',
+  `User_first_name` varchar(255) NOT NULL COMMENT 'user first name',
   `User_adress` longtext COMMENT 'user physical address',
-  `User_phone` varchar (255) DEFAULT NULL COMMENT 'user phone',
+  `User_phone` varchar(255) DEFAULT NULL COMMENT 'user phone',
   `User_birthdate` datetime DEFAULT NULL,
-  `User_password` varchar (255) NOT NULL COMMENT 'User Password'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+  `User_password` varchar(255) NOT NULL COMMENT 'User Password',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ------------------------------------------------ --------
-
---
--- Structure of the `user_answer` table
---
-
-CREATE TABLE `user_answer` (
-  `User_answer_id` int (11) NOT NULL COMMENT 'User answer identifier',
-  `User_id` int (11) NOT NULL COMMENT 'user identifier',
-  `Answer_id` int (11) NOT NULL COMMENT 'answer_id',
-  `User_answer_date` timestamp NULL DEFAULT NULL COMMENT 'date of answer user'
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+-- --------------------------------------------------------
 
 --
--- Index for unloaded tables
+-- Structure de la table `user_answer`
 --
 
---
--- Index for the `answer` table
---
-ALTER TABLE `answer`
-  ADD PRIMARY KEY (`answer_id`);
+DROP TABLE IF EXISTS `user_answer`;
+CREATE TABLE IF NOT EXISTS `user_answer` (
+  `user_answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'User answer identifier',
+  `User_id` int(11) NOT NULL COMMENT 'user identifier',
+  `Answer_id` int(11) NOT NULL COMMENT 'answer_id',
+  `User_answer_date` timestamp NULL DEFAULT NULL COMMENT 'date of answer user',
+  PRIMARY KEY (`user_answer_id`),
+  KEY `user_id_fk` (`User_id`),
+  KEY `answer_id_fk` (`Answer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index for the `question` table
---
-ALTER TABLE `question`
-  ADD PRIMARY KEY (`question_id`),
-  ADD KEY `question_quizz_id_fk` (`question_quizz_id`);
-
---
--- Index for the `quizz` table
---
-ALTER TABLE `quizz`
-  ADD PRIMARY KEY (`quizz_id`);
-
---
--- Index for the ʻuser` table
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Index for the ʻuser_answer` table
---
-ALTER TABLE `user_answer`
-  ADD PRIMARY KEY (`user_answer_id`),
-  ADD KEY `user_id_fk` (`user_id`),
-  ADD KEY `answer_id_fk` (`answer_id`);
-
---
--- AUTO_INCREMENT for unloaded tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for the ʻanswer` table
---
-ALTER TABLE `answer`
-  MODIFY `answer_id` int (11) NOT NULL AUTO_INCREMENT COMMENT 'answer identifier';
-
---
--- AUTO_INCREMENT for the `question` table
---
-ALTER TABLE `question`
-  MODIFY `question_id` int (11) NOT NULL AUTO_INCREMENT COMMENT 'question_identification';
-
---
--- AUTO_INCREMENT for the `quizz` table;
---
-ALTER TABLE `quizz`
-  MODIFY `quizz_id` int (11) NOT NULL AUTO_INCREMENT COMMENT 'Quizz Identifier';
-
---
---  AUTO_INCREMENT for the `user` table;
---
-ALTER TABLE `user`
-  MODIFY `user_id` int (11) NOT NULL AUTO_INCREMENT COMMENT 'user identifier';
-
---
--- AUTO_INCREMENT for the ʻuser_answer` table
---
-ALTER TABLE `user_answer`
-  MODIFY `user_answer_id` int (11) NOT NULL AUTO_INCREMENT COMMENT 'User answer identifier';
-
---
--- Constraints for unloaded tables
---
-
---
--- Constraints for the `question` table
+-- Contraintes pour la table `question`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `question_quizz_id_fk` FOREIGN KEY (`question_quizz_id`) REFERENCES `quizz` (`quizz_id`);
 
 --
--- Constraints for the ʻuser_answer` table
+-- Contraintes pour la table `user_answer`
 --
 ALTER TABLE `user_answer`
-  ADD CONSTRAINT `answer_id_fk` FOREIGN KEY (`answer_id`) REFERENCES `answer` (`answer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `answer_id_fk` FOREIGN KEY (`Answer_id`) REFERENCES `answer` (`answer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`User_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
---
---
--- ---------------------------------------------- -----
--- Insertion into answer table
---
-INSERT INTO `answer`(`Answer_text`,`Is_valid_answer`,`Answer_question_id`) VALUES
- ('Donald Trump',true,1),
- ('Bill Gates',false,1),
- ('Harry Porter',false,1),
- ('Chicago',false,2),
- ('New York',true,2),
- ('Washington',false,2),
- ('Seatle',false,2),
- ('50',true,3),
- ('2009',false,4),
-  ('2017',false,4),
-   ('2008',true,4); 
-
-   INSERT INTO `answer`(`Answer_text`,`Is_valid_answer`,`Answer_question_id`) VALUES
- ('Iron Man',false,5),
- ('The Hulk',false,5),
- ('Thor',true,5),
- ('Gimili',true,7),
- ('Saruman',false,7),
- ('Frodo',true,7),
- ('Merry',true,7),
- ('Thorin',false,7),
- ('A new Hope',false,6),
- ('The Return of the Jedi',false,6),
- ('The Empire strikes back',false,6),
- ('The force Awaken',true,6),
- ('2004',true,8); 
-
-
-
-
---  insertion into quiz
--- --------------------------------------------------- -----
-insert into `quizz`(`quizz_name`) VALUES ('quizz1');
-insert into `quizz`(`quizz_name`) VALUES ('quizz2');
-
-
--- 
--- Insertion into question table
--- ----------------------------------------------------- ----
-insert into question(`question_title`,`question_input_type`,`question_quizz_id`) 
-VALUES ('Who is this Man?','select',1),
-('In which city can we find this statue','radio',1),
-('how many states in usa ?','number',1),
-('when was Obama elected ?','checkbox',1);
-
-insert into question(`question_title`,`question_input_type`,`question_quizz_id`) 
-VALUES ('Which Avenger is this?','select',2),
-('What is name of the fifth Starwars movie?','radio',2),
-('Which characters are members of the fellowship of the Ring','checkbox',2),
-('In which year was Thor ragnorok released?','number',2);
-
-
---
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
