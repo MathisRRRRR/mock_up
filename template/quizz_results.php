@@ -5,7 +5,7 @@
    <title>Quizz index</title>
 
 
-   <?php include("header.php"); ?>
+   <?php include("../index.php"); ?>
 
    <p>
       Your Results!
@@ -45,8 +45,6 @@ echo($marks);
 
 
 ?>
-
-   <?php include('footer.php'); ?>
    </body>
 
 </html>

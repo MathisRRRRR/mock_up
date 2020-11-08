@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <?php include("header.php"); ?>
+    <?php include("../index.php"); ?>
 
     
     <form  action="/action_page.php">
@@ -27,7 +27,6 @@
         
         
       </form>
-    <?phpinclude('footer.php'); ?>
 </body>
 
 </html>

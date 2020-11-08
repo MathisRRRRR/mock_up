@@ -18,7 +18,7 @@ if (isset($_GET['quizz_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quizz index</title>
 
-  <?php include("header.php");
+  <?php include("../index.php");
 
   $response_questions = $database->query("SELECT `question_id`, `question_title`,`question_input_type` FROM `question`  JOIN `quizz` ON 
   `question`.`question_quizz_id` = `quizz`.`quizz_id`WHERE `quizz`.`quizz_id`= $quizz_id");
@@ -99,7 +99,6 @@ if (isset($_GET['quizz_id'])) {
 
 
     </section>
-    <?php include('footer.php'); ?>
     </body>
 
     </html>
