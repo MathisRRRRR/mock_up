@@ -1,12 +1,12 @@
 <?php
-//TODO start session
-
-//TODO include database.php file
+session_start();
+include("database.php");
 ?>
-<?php
-//TODO assign database connexion into $database variable
 
-//TODO include checkUser.php file?>
+<?php
+$database = databaseConnection();
+
+include("checkUser.php");
 
 <?php
 //TODO (in the next step) control user access
