@@ -41,14 +41,14 @@
 <?php 
 
 //session_start();
-//include("database.php");
-//$database = databaseConnection();
-//include("checkUser.php");
+include("database.php");
+$database = databaseConnection();
+include("checkUser.php");
 
 $database_link = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
 
 $page = $database_link->query("SELECT * FROM `links` ");
-echo $page;
+foreach($pg as $page){print $pg;}
 $filename = 'template/home.php';
 
 if(isset($_GET['page'])){
