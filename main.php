@@ -9,17 +9,6 @@
 </head>
 
 <body>
-    <?php include("template/header.php"); ?>
-
-
-    <?php
-    if (isset($_GET['page'])) {
-        include("template/quizz.php");
-    } else {
-        include("template/home.php");
-    }
-
-    include('template/footer.php'); ?>
 </body>
 
 </html>
