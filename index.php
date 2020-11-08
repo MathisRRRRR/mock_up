@@ -39,6 +39,18 @@
 
 //create one php file for each view to manage on the website (don't forget to create on main.php view)
 
+<?php include("template/header.php"); ?>
+
+
+    <?php
+    if (isset($_GET['page'])) {
+        include("template/quizz.php");
+    } else {
+        include("template/home.php");
+    }
+
+    include('template/footer.php'); ?>
+
 //TODO use
 //             input params (included in $_GET or $_POST)
 //             $database variable (initialized in $database.php)
