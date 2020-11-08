@@ -38,12 +38,33 @@
 <?php
 
 //create one php file for each view to manage on the website (don't forget to create on main.php view)?>
+<?php 
+
+//session_start();
+//include("database.php");
+//$database = databaseConnection();
+//include("checkUser.php");
+
+$database_link = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
+
+$page = $database_link->query("SELECT * FROM `links` ");
+echo $page;
+$filename = 'template/home.php';
+
+if(isset($_GET['page'])){
+    $page = $_GET['page'];
+     
+    if(file_exists('template/'.$page.'.php')){
+      $filename = 'template/'.$page.'.php';
+    }
+}
+?>
+
+
 <?php include("main.php"); ?>
 <?php include("template/header.php"); ?>
-
 <p>Projet Web</p>
-<?php
-    include('template/footer.php'); ?>
+<?php include('template/footer.php'); ?>
 <?php
 //TODO use
 //             input params (included in $_GET or $_POST)
