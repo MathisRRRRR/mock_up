@@ -9,8 +9,6 @@
 </head>
 
 <body>
-    <?php include("../index.php"); ?>
-
     
     <form  action="/action_page.php">
         <div class="container">

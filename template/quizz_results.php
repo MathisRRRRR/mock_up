@@ -5,8 +5,6 @@
    <title>Quizz index</title>
 
 
-   <?php include("../index.php"); ?>
-
    <p>
       Your Results!
    </p>

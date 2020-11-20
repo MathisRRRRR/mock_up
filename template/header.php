@@ -1,15 +1,17 @@
 <?php
-$database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
+//$database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
 ?>
+<!--
 <link rel="stylesheet" href="../static/css/base.css">
 <link rel="stylesheet" href="../static/css/account.css">
+-->
 </head>
 
 <body> 
   <nav>
 
     <ul>
-      <li><a href="/mock_up/template/home.php">Home</a></li>
+      <li><a href="index.php?page=home">Home</a></li>
 
 
       <?php
@@ -18,11 +20,11 @@ $database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
 
       while ($result = $response->fetch()) {
       ?>
-        <li><a href="/mock_up/template/quizz.php?quizz_id=<?php echo $result['quizz_id']?>"><?php echo ($result['quizz_name']); ?></a></li>
+        <li><a href="index.php?page=quizz&quizz_id=<?php echo $result['quizz_id']?>"><?php echo ($result['quizz_name']); ?></a></li>
 
       <?php   }
       $response->closeCursor() ;
       ?>
-      <li><a href="/mock_up/template/account_page.php">Login</a></li>
+      <li><a href="index.php?page=account_page">Login</a></li>
     </ul>
   </nav>
