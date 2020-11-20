@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 20 nov. 2020 à 19:05
+-- Généré le : ven. 20 nov. 2020 à 23:05
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -146,13 +146,20 @@ INSERT INTO `quizz` (`quizz_id`, `quizz_name`) VALUES
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `User_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user identifier',
-  `User_lastname` varchar(255) NOT NULL COMMENT 'user last name',
-  `User_firstname` varchar(255) NOT NULL COMMENT 'user first name',
-  `User_username` longtext NOT NULL COMMENT 'username',
-  `User_email` longtext COMMENT 'user email address',
-  `User_password` varchar(255) NOT NULL COMMENT 'User Password',
+  `lastname` varchar(255) NOT NULL COMMENT 'user last name',
+  `firstname` varchar(255) NOT NULL COMMENT 'user first name',
+  `username` longtext NOT NULL COMMENT 'username',
+  `email` longtext COMMENT 'user email address',
+  `password` varchar(255) NOT NULL COMMENT 'User Password',
   PRIMARY KEY (`User_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`User_id`, `lastname`, `firstname`, `username`, `email`, `password`) VALUES
+(1, 'Test', 'Test', 'TEST', 'test@test.fr', '$2y$10$xPQnQSDwUb/7XWbkzsZB6umUqwf9r3bmhOPcdq138zgW6QQS6WamO');
 
 -- --------------------------------------------------------
 

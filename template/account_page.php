@@ -1,66 +1,93 @@
-<!Doctype html >
-
+<!DOCTYPE html >
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link rel="stylesheet" href="./static/css/base.css">
-    <!--  -->
+    <link rel="stylesheet" href="./static/css/account.css">
 </head>
 
 <body>
+    <!--
     <h2><br>Connect to your account</h2>
-    
     <form  action="/action_page.php">
         <div class="container">
           <label for="username"><b>Username</b></label>
           <input type="text" placeholder="Enter Username" name="username" required>
-
-          <label for="psw"><b>Password</b></label>
+          <label for="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="password" required>
-
           <button type="connect" name="connect" id="connect">Login</button>
-          
-        
         </div>
+    </form>
+    -->
 
-      </form>
 
     <h2><br>Not registered yet ? Create an account</h2>
+    <form method="post">
+    <div class="container">
+      <input type="text" name="lastname" id="lastname" placeholder="Nom" required><br/>
+      <input type="text" name="firstname" id="firstname" placeholder="Prénom" required><br/>
+      <input type="text" name="username" id="username" placeholder="Pseudo" required><br/>
+      <input type="text" name="email" id="email" placeholder="Email" required><br/>
+      <input type="password" name="password" id="password" placeholder="Mot de passe" required><br/>
+      <input type="password" name="checkpassword" id="checkpassword" placeholder="Confirmer mot de passe" required><br/>
+      <button type="submit" name="formsend" id="formsend" required>Submit</button><br/>
+    </div>
+    </form>
 
-    <form  action="/action_page.php">
-        <div class="container">
-          <label for="firstname"><b>Firstname</b></label>
-          <input type="text" placeholder="Enter Firstname" name="firstname" required>
+    <?php 
 
-          <label for="lastname"><b>Lastname</b></label>
-          <input type="text" placeholder="Enter Lastname" name="lastname" required>
+      if(isset($_POST['formsend'])){
 
-          <label for="username"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="username" required>
+        extract($_POST);
 
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
+        if(!empty($lastname) && !empty($firstname) && !empty($username) && !empty($email) && !empty($password) && !empty($checkpassword)){
 
-          <label for="cpsw"><b>Confirm Password</b></label>
-          <input type="password" placeholder="Confirm your Password" name="cpassword" required>
+          if($password == $checkpassword){
 
-          <button type="submit" name="submit" id="submit">Register</button>
+            $options = [
+              'costs' => 12,
+            ];
 
-          <?php include("checkUser.php"); ?>
-          
-        </div>
+            $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
 
-      </form>
+            global $database;
+            $c = $database->prepare("SELECT email FROM user WHERE email = :email");
+            $c->execute(['email'=>$email]);
+            $result = $c->rowCount();
+            $c = $database->prepare("SELECT username FROM user WHERE username = :username");
+            $c->execute(['username'=>$username]);
+            $result1 = $c->rowCount();
 
-      <h1> <br><br> </h1>
+            if($result ==0 && $result1 ==0){
+              $q = $database->prepare("INSERT INTO user(lastname,firstname,username,email,password) VALUES(:lastname,:firstname,:username,:email,:password)");
+              $q->execute([
+                'lastname' => $lastname,
+                'firstname' => $firstname,
+                'username' => $username,
+                'email' => $email,
+                'password' => $hashpass
+              ]);
+              echo "Le compte a été créé";
+              ?><br/><?php
+            }
+
+            else{ echo "L'email et/ou le pseudo est déjà utilisé."; }
+            ?><br/><?php
+
+          }
+          else { echo "Les deux mots de passe ne correspondent pas."; }
+          ?><br/><?php
+        }
+
+        else{ echo "Les champs ne sont pas tous remplis."; }
+        ?><br/><?php
+      }
+
+    ?>
 
 </body>
 
 </html>
-
-
-
-
-
 
