@@ -27,7 +27,6 @@
                  
                 else{
                     include('template/home.php');
-                    //echo 'The file does not exist';
                 }
                 
             ?>

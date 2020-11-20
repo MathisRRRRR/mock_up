@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 08 nov. 2020 à 22:44
+-- Généré le : ven. 20 nov. 2020 à 19:05
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -145,14 +145,13 @@ INSERT INTO `quizz` (`quizz_id`, `quizz_name`) VALUES
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user identifier',
-  `User_last_name` varchar(255) NOT NULL COMMENT 'user last name',
-  `User_first_name` varchar(255) NOT NULL COMMENT 'user first name',
-  `User_adress` longtext COMMENT 'user physical address',
-  `User_phone` varchar(255) DEFAULT NULL COMMENT 'user phone',
-  `User_birthdate` datetime DEFAULT NULL,
+  `User_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user identifier',
+  `User_lastname` varchar(255) NOT NULL COMMENT 'user last name',
+  `User_firstname` varchar(255) NOT NULL COMMENT 'user first name',
+  `User_username` longtext NOT NULL COMMENT 'username',
+  `User_email` longtext COMMENT 'user email address',
   `User_password` varchar(255) NOT NULL COMMENT 'User Password',
-  PRIMARY KEY (`user_id`)
+  PRIMARY KEY (`User_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -187,7 +186,7 @@ ALTER TABLE `question`
 --
 ALTER TABLE `user_answer`
   ADD CONSTRAINT `answer_id_fk` FOREIGN KEY (`Answer_id`) REFERENCES `answer` (`answer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`User_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`User_id`) REFERENCES `user` (`User_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
