@@ -4,31 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
-    <link rel="stylesheet" href="./static/css/base.css">
-    <link rel="stylesheet" href="./static/css/account.css">
+
 </head>
 
 <body>
-    <!--
     <h2><br>Connect to your account</h2>
-    <form  action="/action_page.php">
+    <form  method="post">
         <div class="container">
           <label for="username"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="username" required>
+          <input type="text" placeholder="Enter Username" name="cusername" required>
           <label for="password"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" required>
+          <input type="password" placeholder="Enter Password" name="cpassword" required>
           <button type="connect" name="connect" id="connect">Login</button>
         </div>
     </form>
-    -->
-
-
     <h2><br>Not registered yet ? Create an account</h2>
     <form method="post">
     <div class="container">
       <input type="text" name="lastname" id="lastname" placeholder="Nom" required><br/>
       <input type="text" name="firstname" id="firstname" placeholder="Prénom" required><br/>
-      <input type="text" name="username" id="username" placeholder="Pseudo" required><br/>
+      <input type="text" name="username" id="username" placeholder="username" required><br/>
       <input type="text" name="email" id="email" placeholder="Email" required><br/>
       <input type="password" name="password" id="password" placeholder="Mot de passe" required><br/>
       <input type="password" name="checkpassword" id="checkpassword" placeholder="Confirmer mot de passe" required><br/>

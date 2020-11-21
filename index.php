@@ -1,6 +1,7 @@
 <?php
     include("database.php");
     $database=databaseConnection();
+    include("template/log.php");
 
 ?>
 <!DOCTYPE html>
