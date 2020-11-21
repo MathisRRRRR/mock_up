@@ -13,7 +13,8 @@
                 if (password_verify($_POST['cpassword'] , $cresult['password']))
                 {
                     echo 'vous etes connectes';
-                    
+                    header ('Location: ../mock_up');
+                    exit();
                 }
                 else
                 {

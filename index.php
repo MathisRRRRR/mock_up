@@ -1,8 +1,14 @@
 <?php
-    include("database.php");
-    $database=databaseConnection();
-    include("template/log.php");
+    
+    if (empty($database))
+    {
+        include("database.php");
+        $database=databaseConnection();
+        include("template/log.php");
 
+    }
+    
+    
 ?>
 <!DOCTYPE html>
 <html>
