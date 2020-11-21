@@ -93,6 +93,7 @@ if (isset($_GET['quizz_id'])) {
 		$response_questions->closeCursor();
 		?>
 	}
+	else{echo "Vous devez être connecté avant de commencer un quizz.";}
 		<br>
 		<input type="submit" name="submit">
     </form>

@@ -36,8 +36,16 @@ if(isset($_POST['submit'])){
    $count++;
    
    }
+
+global $database;
+$q = $database->prepare("INSERT INTO user(username,id_quizz,result) VALUES(:lastname,::id_quizz,:marks)");
+$q->execute([
+	'username' => $_SESSION['pseudo'],
+    'id_quizz' => $_GET['quiz'],
+    'result' => $marks,
+]);
    
-echo($marks); 
+echo("Votre score est de" $marks " points. Félicitaions."); 
    
 }
 
