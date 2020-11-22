@@ -1,5 +1,5 @@
 <?php
-    
+
     if (isset($_POST['connect']))
     {
         if (!empty($_POST['cusername']) && !empty($_POST['cpassword'] ))
@@ -12,9 +12,11 @@
             {
                 if (password_verify($_POST['cpassword'] , $cresult['password']))
                 {
+                    $_SESSION['pass']=$cresult['username'];
                     echo 'vous etes connectes';
-                    header ('Location: ../mock_up');
-                    exit();
+                    header ("Location: ../mock_up/index.php?pp".$pp);
+                    
+                    
                 }
                 else
                 {

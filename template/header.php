@@ -1,5 +1,6 @@
 <?php
 //$database = new PDO('mysql:host=localhost;dbname=questionbank', 'root', '');
+include ("./template/log.php");
 ?>
 <!--
 <link rel="stylesheet" href="../static/css/base.css">
@@ -9,22 +10,31 @@
 
 <body> 
   <nav>
-
     <ul>
       <li><a href="index.php?page=home">Home</a></li>
-
-
       <?php
+        if (!empty($_SESSION['pass']))
+        {
+            $response = $database->query("SELECT * FROM `quizz` ");
 
-      $response = $database->query("SELECT * FROM `quizz` ");
-
-      while ($result = $response->fetch()) {
-      ?>
-        <li><a href="index.php?page=quizz&quizz_id=<?php echo $result['quizz_id']?>"><?php echo ($result['quizz_name']); ?></a></li>
-
-      <?php   }
-      $response->closeCursor() ;
-      ?>
-      <li><a href="index.php?page=account_page">Login</a></li>
+            while ($result = $response->fetch()) {?>
+                <li><a href="index.php?page=quizz&quizz_id=<?php echo $result['quizz_id']?>"><?php echo ($result['quizz_name']); ?></a></li><?php   
+            }
+            $response->closeCursor() ;
+            
+        }   ?>
+      <?php
+        if (empty($_SESSION['pass']))
+        {?>
+            <li><a href="index.php?page=account_page">Login</a></li><?php
+        }
+        else
+        {?>
+            <li><a href="index.php?page=account_page">Log-out</a></li>
+        <?php
+        }?>
+        
+       
     </ul>
   </nav>
+  </body>

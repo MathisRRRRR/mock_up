@@ -1,4 +1,6 @@
 <?php
+   session_start();
+    
     
     if (empty($database))
     {
@@ -8,8 +10,19 @@
 
     }
     
+    /*echo $_SESSION['pass'];
+    $connectiona = $database->prepare("SELECT * FROM user WHERE username = :usernam");
+    $connectiona->execute(['usernam' => $_SESSION['pass']]);
+    $cresulta = $connectiona->fetch();
+    echo $cresulta['password'];*/
+  //  $connectionap = $database->prepare("UPDATE user SET password=".$_SESSION['pass']." WHERE  username='aze'");
+    //$connectionap->execute();
+  
     
+    
+
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
