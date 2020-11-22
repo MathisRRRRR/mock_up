@@ -6,7 +6,7 @@ if (isset($_GET['quizz_id'])) {
   die;
 }
 
-
+ 
 
 ?>
 
