@@ -45,7 +45,7 @@ $q->execute([
     'result' => $marks,
 ]);
    
-echo("Votre score est de" $marks " points. Félicitaions."); 
+echo("Votre score est de" $marks " points. Fï¿½licitaions."); 
    
 }
 
