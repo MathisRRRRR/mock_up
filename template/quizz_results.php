@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
    }
 
 global $database;
-$q = $database->prepare("INSERT INTO user(username,id_quizz,result) VALUES(:lastname,::id_quizz,:marks)");
+$q = $database->prepare("INSERT INTO user_answer(username,id_quizz,result) VALUES(:lastname,:id_quizz,:marks)");
 $q->execute([
 	'username' => $_SESSION['pseudo'],
     'id_quizz' => $_GET['quiz'],
