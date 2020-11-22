@@ -32,11 +32,11 @@ $classement->closeCursor();
  <?php
 $rang = 1;
 
-$classement = $database->query("SELECT username, result FROM user_answer WHERE id_quizz = 2 AND ORDER BY result DESC ")or die(print_r($database->errorInfo()));
-while ($data = mysql_fetch_array($classement)) {
+$classement2 = $database->query("SELECT username, result FROM user_answer WHERE id_quizz = 2 AND ORDER BY result DESC ")or die(print_r($database->errorInfo()));
+while ($data2 = mysql_fetch_array($classement2)) {
 	echo 'rang : ' $rang;  
-	echo 'Pseudo : ' $data['username'];
-	echo 'Score : ' $data['result'] <br>;
+	echo 'Pseudo : ' $data2['username'];
+	echo 'Score : ' $data2['result'] <br>;
 	$rang ++;
 }
 $classement->closeCursor();
