@@ -14,7 +14,7 @@
                 {
                     $_SESSION['pass']=$cresult['username'];
                     echo 'vous etes connectes';
-                    header ("Location: ../mock_up/index.php?pp".$pp);
+                    header ("Location: ../mock_up/index.php?home");
                     
                     
                 }

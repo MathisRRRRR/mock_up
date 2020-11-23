@@ -24,13 +24,14 @@ include ("./template/log.php");
             
         }   ?>
       <?php
-        if (empty($_SESSION['pass']))
+        if (!empty($_SESSION['pass']))
         {?>
-            <li><a href="index.php?page=account_page">Login</a></li><?php
+            <li> <a href="index.php?page=index&ac=1" >Log-out</a></li>
+            <?php
         }
         else
         {?>
-            <li><a href="index.php?page=account_page">Log-out</a></li>
+            <li><a href="index.php?page=account_page">Login</a></li>
         <?php
         }?>
         
